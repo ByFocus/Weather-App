@@ -125,7 +125,7 @@ const api = {
       document.body.style.backgroundImage = "url('assets/js/day.jpg')";
     }
     if(hours > 18){
-      document.body.style.backgroundImage = "url('assets/IMG/bg.jpg')";
+      document.body.style.backgroundImage = "url('assets/js/bg.jpg')";
     }
 
     if(hours > 23){
