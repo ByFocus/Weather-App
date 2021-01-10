@@ -69,7 +69,7 @@ const api = {
       default: currentWeather = weather.weather[0].main; //weather.weather[0].main; 
     }
     console.log(weatherState);  
-    var icon = ("<img src='../assets/js/icons/" + weatherState + ".png'>");
+    var icon = ("<img src='assets/js/icons/" + weatherState + ".png'>");
     weather_el.innerText = currentWeather;
     locationIcon.innerHTML = icon;
     
@@ -116,20 +116,20 @@ const api = {
 
     //background
     if(hours < 8){
-      document.body.style.backgroundImage = "url('../assets/js/night.jpg')";
+      document.body.style.backgroundImage = "url('assets/js/night.jpg')";
     }
     if(hours < 12){
-      document.body.style.backgroundImage = "url('../assets/js/sunset.jpg')";
+      document.body.style.backgroundImage = "url('assets/js/sunset.jpg')";
     }
     if(hours > 12){
-      document.body.style.backgroundImage = "url('../assets/js/day.jpg')";
+      document.body.style.backgroundImage = "url('assets/js/day.jpg')";
     }
     if(hours > 18){
-      document.body.style.backgroundImage = "url('../assets/IMG/bg.jpg')";
+      document.body.style.backgroundImage = "url('assets/IMG/bg.jpg')";
     }
 
     if(hours > 23){
-      document.body.style.backgroundImage = "url('../assets/js/night.jpg')";
+      document.body.style.backgroundImage = "url('assets/js/night.jpg')";
     }
   }
 
