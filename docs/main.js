@@ -15,7 +15,7 @@ var stateGrades = false;
     unidades = 'ºF'
     getResults(searchbox.value);
     stateGrades = true;
-    console.log(stateGrades);
+    
     if(stateGrades === true){
 
       selectButton.innerHTML = '<button class="btn" onclick="celsiusFunc()">ºC</button>';
@@ -31,7 +31,7 @@ var stateGrades = false;
     if(stateGrades === false){
 
       selectButton.innerHTML = '<button class="btn" onclick="farenheitFunc()">ºF</button>';
-     console.log('imperial');
+    
 
 }
   }
@@ -108,7 +108,7 @@ var stateGrades = false;
         break;
       default: currentWeather = weather.weather[0].main; //weather.weather[0].main; 
     }
-    console.log(weatherState);  
+ 
     var icon = ("<img src='assets/js/icons/" + weatherState + ".png'>");
     weather_el.innerText = currentWeather;
     locationIcon.innerHTML = icon;
