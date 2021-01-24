@@ -5,15 +5,52 @@ const api = {
   
   const searchbox = document.querySelector('.search-box');
   searchbox.addEventListener('keypress', setQuery);
+
+var unidades = 'ºC'
+
+var stateGrades = false;
+
+  function farenheitFunc(){
+    celsius = 'imperial';
+    unidades = 'ºF'
+    getResults(searchbox.value);
+    stateGrades = true;
+    console.log(stateGrades);
+    if(stateGrades === true){
+
+      selectButton.innerHTML = '<button class="btn" onclick="celsiusFunc()">ºC</button>';
+      celsius = 'metric'; 
+  }
+  }
+
+  function celsiusFunc(){
+    celsius = 'metric';
+    unidades = 'ºC'
+    getResults(searchbox.value);
+    stateGrades = false;
+    if(stateGrades === false){
+
+      selectButton.innerHTML = '<button class="btn" onclick="farenheitFunc()">ºF</button>';
+     console.log('imperial');
+
+}
+  }
+
+  const selectButton = document.querySelector('.farenheit');
+
   
+
   function setQuery(evt) {
     if (evt.keyCode == 13) {
       getResults(searchbox.value);
+      celsiusFunc();
     }
   }
   
+  var celsius = 'metric';
+
   function getResults (query) {
-    fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+    fetch(`${api.base}weather?q=${query}&units=${celsius}&APPID=${api.key}`)
       .then(weather => {
         return weather.json();
       }).then(displayResults);
@@ -29,7 +66,10 @@ const api = {
       case undefined:
         weather.sys.country = '';
         city.innerText = `${weather.name}`;
-        break;
+        
+        break
+
+        
     }
   
     let now = new Date();
@@ -37,7 +77,7 @@ const api = {
     date.innerText = dateBuilder(now);
   
     let temp = document.querySelector('.current .temp');
-    temp.innerHTML = `${Math.round(weather.main.temp)} ºC`;
+    temp.innerHTML = `${Math.round(weather.main.temp)} ${unidades} `;
   
     let weather_el = document.querySelector('.current .weather');
 
@@ -77,7 +117,7 @@ const api = {
     
   
     let hilow = document.querySelector('.hi-low');
-    hilow.innerText = `Mínima Temp ${Math.round(weather.main.temp_min)}°C / Máxima Temp ${Math.round(weather.main.temp_max)}°C`;
+    hilow.innerText = `Mínima Temp ${Math.round(weather.main.temp_min)}${unidades} / Máxima Temp ${Math.round(weather.main.temp_max)}${unidades}`;
     var currentTime = new Date();
     var hours = currentTime.getHours();
     var minutes = currentTime.getMinutes();

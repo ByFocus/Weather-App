@@ -11,6 +11,24 @@ body{
     background-position: top center;
 
 }
+
+
+  
+  /* Style the button and place it in the middle of the container/image */
+.farenheit .btn {
+    position: absolute;
+    bottom: 13%;
+    left: calc(50% - 32px);
+    background-color: rgb(228, 87, 5);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
 .app-wrap{
     display: flex;
     flex-direction: column;
